@@ -1,0 +1,11 @@
+body{
+background: #882DDD;
+background: radial-gradient(at right center, #882DDD, #A3A6BB);
+}
+#messages{
+    height: 600px;
+    width: 500px;
+    background-color: whitesmoke;
+    position: absolute;
+    left: 30%;
+}
