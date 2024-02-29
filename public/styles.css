@@ -1,19 +1,27 @@
 body{
 background: #882DDD;
-
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 #messages{
+    flex: 1;
     height: 500px;
     width: 700px;
     background-color: black;
     position: absolute;
-    left: 25%;
+    left: 22%;
     display: flex;
     flex-direction: column;
     border-radius: 20px;
     top: 10%;
     padding: 2rem;
     overflow-y: auto;
+    -webkit-box-shadow: -1px 0px 21px 0px rgba(232,220,232,1);
+    -moz-box-shadow: -1px 0px 21px 0px rgba(232,220,232,1);
+box-shadow: -1px 0px 21px 0px rgba(232,220,232,1);
 }
 .sender-message{
    align-self: flex-end;
@@ -39,4 +47,59 @@ text-decoration: none;
 font-style: normal;
 font-variant: normal;
 text-transform: normal;
+}
+#message-form {
+    margin-top: auto;
+}
+*{outline: none;}
+.searchbox-wrap{
+  display     : flex; 
+  width       : 766px;  
+  margin-top  : 8%;
+  margin-left : auto;
+  margin-right: auto;
+  bottom: 2%;
+  position: absolute;
+  left: 22%;
+  input{
+     flex                             : 1;
+     padding                          : 15px 10px;
+     font-size                        : 1rem;
+     -moz-border-radius-bottomleft    : 20px;
+     border-bottom-left-radius        : 20px;
+     box-shadow                       : none;
+     border                           : none;
+     box-shadow                       : 2px 4px 6px rgba(0, 0, 0, 0.19);
+  }
+  button{
+    padding-right                     : 10px;
+    background-color                  : #fff;
+    
+    -webkit-border-bottom-right-radius: 20px;
+    -moz-border-radius-bottomright    : 20px;
+    border-bottom-right-radius        : 20px;
+    box-shadow                        : 5px 4px 6px rgba(0, 0, 0, 0.19);
+    border                            : none;
+    cursor                            : pointer; 
+    cursor                            : hand;
+    
+    span{
+      margin-left     : 50px;
+      padding         : 10px 22px;
+      font-size       : 1rem;
+      text-transform  : uppercase;
+      font-weight     : 300 ;
+      color           : #fff;
+      background-color: #F54E59;
+      
+      border-radius   : 20px;
+      box-shadow      : 2px 4px 6px rgba(0, 0, 0, 0.19);
+      
+      &:hover{
+        background-color: #d6121f;
+        box-shadow      : 2px 2px 4px rgba(0, 0, 0, 0.19);
+      }
+      
+    }
+  }
 }
