@@ -14,6 +14,11 @@ app.use(express.static('public'));
 io.on('connection', (socket) => {
     console.log('User connected');
 
+    // Emit 'user-joined' event when a new user connects
+    socket.on('user-joined', (userName) => {
+        io.emit('user-joined', userName); // Broadcast to all connected clients
+    });
+
     // Listen for messages
     socket.on('message', (message) => {
         // Broadcast message to all connected clients

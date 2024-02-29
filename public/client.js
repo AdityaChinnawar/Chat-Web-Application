@@ -24,9 +24,30 @@ document.getElementById('message-form').addEventListener('submit', (e) => {
 socket.on('message', (data) => {
     const messagesDiv = document.getElementById('messages');
     const messageElement = document.createElement('div');
-    messageElement.textContent = `${data.user}: ${data.text}`; 
+    messageElement.classList.add('message');
+    
+    const usernameSpan = document.createElement('span');
+    const textSpan = document.createElement('span');
+    
+    usernameSpan.textContent = data.user;
+    textSpan.textContent = data.text;
+    
+    usernameSpan.classList.add('username');
+    
+    messageElement.appendChild(usernameSpan);
+    messageElement.appendChild(document.createElement('br'));
+    messageElement.appendChild(textSpan);
+    
+    if (data.user === userName) {
+        messageElement.classList.add('sender-message');
+    } else {
+        messageElement.classList.add('receiver-message');
+    }
+    
     messagesDiv.appendChild(messageElement);
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
 });
+
 
 // Display user join message
 socket.on('user-joined', (userName) => {
