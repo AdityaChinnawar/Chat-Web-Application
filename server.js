@@ -16,6 +16,7 @@ io.on('connection', (socket) => {
 
     // Emit 'user-joined' event when a new user connects
     socket.on('user-joined', (userName) => {
+        console.log('User joined:', userName);
         io.emit('user-joined', userName); // Broadcast to all connected clients
     });
 

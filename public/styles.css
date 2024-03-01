@@ -1,27 +1,47 @@
 body{
 background: #882DDD;
 }
+@import url('https://fonts.googleapis.com/css?family=Ramabhadra');
+h1{
+  font-family: Ramabhadra, sans-serif;
+  text-align: center;
+  font-size: 35px;
+  color: rgba(0, 0, 0, 0.73);
+  text-shadow: rgb(188, 155, 217) 2px 2px 2px;
+}
 .container {
     display: flex;
     flex-direction: column;
     height: 100%;
 }
+#users{
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  background-color: aliceblue;
+  height: 500px;
+  width: 262px;
+  padding: 1rem;
+  position: absolute;
+  left: 8.4%;
+  top: 15%;
+}
 #messages{
     flex: 1;
-    height: 500px;
+    height: 460px;
     width: 700px;
     background-color: black;
     position: absolute;
-    left: 22%;
+    left: 30%;
     display: flex;
     flex-direction: column;
-    border-radius: 20px;
-    top: 10%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    top: 15%;
     padding: 2rem;
     overflow-y: auto;
     -webkit-box-shadow: -1px 0px 21px 0px rgba(232,220,232,1);
     -moz-box-shadow: -1px 0px 21px 0px rgba(232,220,232,1);
-box-shadow: -1px 0px 21px 0px rgba(232,220,232,1);
+    box-shadow: -1px 0px 21px 0px rgba(232,220,232,1);
 }
 .sender-message{
    align-self: flex-end;
@@ -54,19 +74,19 @@ text-transform: normal;
 *{outline: none;}
 .searchbox-wrap{
   display     : flex; 
-  width       : 766px;  
+  width       : 1060px;  
   margin-top  : 8%;
   margin-left : auto;
   margin-right: auto;
   bottom: 2%;
   position: absolute;
-  left: 22%;
+  left: 8.4%;
   input{
      flex                             : 1;
      padding                          : 15px 10px;
      font-size                        : 1rem;
      -moz-border-radius-bottomleft    : 20px;
-     border-bottom-left-radius        : 20px;
+     border-bottom-left-radius: 20px;
      box-shadow                       : none;
      border                           : none;
      box-shadow                       : 2px 4px 6px rgba(0, 0, 0, 0.19);

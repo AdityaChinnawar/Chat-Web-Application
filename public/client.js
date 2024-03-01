@@ -1,5 +1,5 @@
 const socket = io();
-
+console.log('Connected to server');
 // Prompt the user for their name
 const userName = prompt('Please enter your name:');
 if (userName) {
@@ -51,8 +51,9 @@ socket.on('message', (data) => {
 
 // Display user join message
 socket.on('user-joined', (userName) => {
-    const messagesDiv = document.getElementById('messages');
+    const messagesDiv = document.getElementById('users');
     const joinMessageElement = document.createElement('div');
     joinMessageElement.textContent = `${userName} has joined the chat`;
     messagesDiv.appendChild(joinMessageElement);
 });
+
