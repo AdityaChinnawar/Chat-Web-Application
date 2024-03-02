@@ -51,9 +51,29 @@ socket.on('message', (data) => {
 
 // Display user join message
 socket.on('user-joined', (userName) => {
-    const messagesDiv = document.getElementById('users');
+    const messagesDiv = document.getElementById('messages');
     const joinMessageElement = document.createElement('div');
+    joinMessageElement.classList.add('message');
     joinMessageElement.textContent = `${userName} has joined the chat`;
     messagesDiv.appendChild(joinMessageElement);
 });
 
+socket.on('user-disconnected', (leftUser) => {
+    const messagesDiv = document.getElementById('messages');
+    const leaveMessageElement = document.createElement('div');
+    leaveMessageElement.classList.add('message');
+    leaveMessageElement.textContent = `${leftUser} has left the chat`;
+    messagesDiv.appendChild(leaveMessageElement);
+});
+
+
+socket.on('active-users', (activeUsers) => {
+    const messagesDiv = document.getElementById('messages');
+    usersContainer.innerHTML = ''; // Clear previous users
+    
+    activeUsers.forEach((user) => {
+        const userElement = document.createElement('div');
+        userElement.textContent = user;
+        usersContainer.appendChild(userElement);
+    });
+});
