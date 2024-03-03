@@ -68,7 +68,7 @@ socket.on('user-disconnected', (leftUser) => {
 
 
 socket.on('active-users', (activeUsers) => {
-    const messagesDiv = document.getElementById('messages');
+    const usersContainer = document.getElementById('users');
     usersContainer.innerHTML = ''; // Clear previous users
     
     activeUsers.forEach((user) => {
