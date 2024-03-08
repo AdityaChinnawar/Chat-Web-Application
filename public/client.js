@@ -66,14 +66,21 @@ socket.on('user-disconnected', (leftUser) => {
     messagesDiv.appendChild(leaveMessageElement);
 });
 
+// Listen for click event on the dropdown menu
+document.getElementById('active-users-dropdown').addEventListener('click', () => {
+    // Emit an event to the server to request the active users list
+    socket.emit('get-active-users');
+});
 
-socket.on('active-users', (activeUsers) => {
-    const usersContainer = document.getElementById('users');
-    usersContainer.innerHTML = ''; // Clear previous users
-    
-    activeUsers.forEach((user) => {
-        const userElement = document.createElement('div');
-        userElement.textContent = user;
-        usersContainer.appendChild(userElement);
-    });
+// Listen for server response with active users list
+socket.on('active-users-list', (activeUsers) => {
+    // Display the active users list in the dropdown menu
+    const dropdownMenu = document.getElementById('active-users-dropdown');
+    dropdownMenu.innerHTML = ''; // Clear previous content
+    for (const userId in activeUsers) {
+        const userName = activeUsers[userId];
+        const userOption = document.createElement('option');
+        userOption.textContent = userName;
+        dropdownMenu.appendChild(userOption);
+    }
 });

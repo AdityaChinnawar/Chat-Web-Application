@@ -123,3 +123,52 @@ text-transform: normal;
     }
   }
 }
+.container {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#show-users-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#show-users-btn:hover {
+  background-color: #0056b3;
+}
+
+#active-users-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 10px;
+  text-align: left;
+}
+
+#active-users-list li {
+  padding: 5px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ccc;
+}
+
+#active-users-list li:last-child {
+  border-bottom: none;
+}
+
+/* Style for the container holding the button and list */
+.container {
+  margin-top: 50px;
+}
+
+/* Style for the heading */
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}

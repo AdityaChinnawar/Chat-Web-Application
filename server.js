@@ -37,15 +37,15 @@ io.on('connection', (socket) => {
         if (leftUser) {
             io.emit('user-disconnected', leftUser); // Emit event to all connected clients
             delete activeUsers[socket.id]; // Remove the user from active users list
-            emitActiveUsers(); // Emit updated list of active users
         }
     });    
 });
-// Function to emit updated list of active users
-function emitActiveUsers() {
-    const activeUserList = Object.values(activeUsers);
-    io.emit('active-users', activeUserList);
-}
+// Handle request for active users list
+socket.on('get-active-users', () => {
+    // Send the active users list to the client
+    io.to(socket.id).emit('active-users-list', activeUsers);
+});
+
 // Start server
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
