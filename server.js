@@ -38,13 +38,14 @@ io.on('connection', (socket) => {
             io.emit('user-disconnected', leftUser); // Emit event to all connected clients
             delete activeUsers[socket.id]; // Remove the user from active users list
         }
-    });    
+    }); 
+    // Handle request for active users list
+    socket.on('get-active-users', () => {
+        // Send the active users list to the client
+        io.to(socket.id).emit('active-users-list', activeUsers);
+    });   
 });
-// Handle request for active users list
-socket.on('get-active-users', () => {
-    // Send the active users list to the client
-    io.to(socket.id).emit('active-users-list', activeUsers);
-});
+
 
 // Start server
 const PORT = process.env.PORT || 3000;
