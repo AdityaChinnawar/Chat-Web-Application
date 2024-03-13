@@ -7,15 +7,14 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-   
+    <h2>Welcome to Chat Application</h2>
     <div class="container">
-        <h1>Welcome to Chat Application</h1>
         <div id="users">
-            <h1>Active Users</h1>
-        <button id="show-users-btn">Show Active Users</button>
-        <ul id="active-users-list">
-            <!-- Active users list will be added dynamically using JavaScript -->
-        </ul>
+            <h2>Active Users</h2>
+            <button id="show-users-btn">Show Active Users</button>
+            <ul id="active-users-list">
+                <!-- Active users list will be added dynamically using JavaScript -->
+            </ul>
         </div>
         <div id="messages"></div>
         <form id="message-form" class="searchbox-wrap">
@@ -25,5 +24,10 @@
     </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="client.js" defer></script>
+    <script>
+        document.getElementById('show-users-btn').addEventListener('click', () => {
+            socket.emit('get-active-users');
+        });
+    </script>
 </body>
 </html>
